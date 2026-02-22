@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricelist - Impro Photography</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #fbbf24;
+            --dark: #020617;
+            --card: #0f172a;
+            --border: #1e293b;
+            --text-gray: #94a3b8;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background: var(--dark); color: white; margin: 0; scroll-behavior: smooth; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        header { text-align: center; padding: 40px 0; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+        .btn-back { color: white; text-decoration: none; border: 1px solid var(--border); padding: 8px 20px; border-radius: 30px; font-size: 0.8rem; transition: 0.3s; }
+        .btn-back:hover { background: var(--gold); color: black; }
+
+        .category-nav {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
+            position: sticky; top: 10px; z-index: 100; background: rgba(2, 6, 23, 0.9); padding: 10px;
+            backdrop-filter: blur(10px); border-radius: 50px; border: 1px solid var(--border);
+        }
+        .nav-item {
+            background: var(--card); border: 1px solid var(--border); color: white; padding: 10px 20px;
+            border-radius: 50px; cursor: pointer; font-size: 0.8rem; transition: 0.3s; white-space: nowrap;
+        }
+        .nav-item.active { background: var(--gold); color: black; border-color: var(--gold); font-weight: 700; }
+
+        .price-section { display: none; animation: fadeIn 0.4s ease; }
+        .price-section.active { display: block; }
+
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; transition: 0.3s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .card h3 { margin: 0; font-size: 1.1rem; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+        .price { color: var(--gold); font-size: 1.35rem; font-weight: 700; margin: 12px 0; display: block; }
+        
+        .card ul { padding: 0; margin: 0 0 25px 0; flex-grow: 1; }
+        .card li { list-style: none; color: var(--text-gray); font-size: 0.85rem; margin-bottom: 8px; display: flex; align-items: baseline; }
+        .card li i { color: var(--gold); margin-right: 12px; font-size: 0.75rem; width: 15px; text-align: center; }
+
+        .btn-wa { background: var(--gold); color: black; text-decoration: none; text-align: center; padding: 12px; border-radius: 12px; font-weight: 700; transition: 0.3s; font-size: 0.9rem; }
+        .btn-wa:hover { background: white; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> KEMBALI KE HOME</a>
+        <h1 style="margin-top: 20px; font-size: 2rem; letter-spacing: 2px;">PRICE LIST 2026</h1>
+    </header>
+
+    <div class="category-nav">
+        <div class="nav-item active" onclick="showCategory('sosmed', this)">Sosmed</div>
+        <div class="nav-item" onclick="showCategory('event', this)">Event</div>
+        <div class="nav-item" onclick="showCategory('wedding', this)">Wedding</div>
+        <div class="nav-item" onclick="showCategory('ultah', this)">Ulang Tahun</div>
+        <div class="nav-item" onclick="showCategory('tasmiyah', this)">Tasmiyah</div>
+        <div class="nav-item" onclick="showCategory('model', this)">Model</div>
+        <div class="nav-item" onclick="showCategory('corporate', this)">Corporate</div>
+    </div>
+
+    <div id="sosmed" class="price-section active">
+        <div class="price-grid">
+            <div class="card">
+                <h3>Paket Starter</h3><span class="price">Rp 1.5jt - 2jt /Bln</span>
+                <ul><li><i class="fas fa-check"></i> 10 Desain Feed</li><li><i class="fas fa-check"></i> 2 Video Reels</li><li><i class="fas fa-check"></i> Admin Posting</li></ul>
+                <a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20pesan%20Paket%20Starter%20Sosmed" class="btn-wa">Pesan Paket</a>
+            </div>
+            <div class="card" style="border: 2px solid var(--gold);">
+                <h3>Paket Growth</h3><span class="price">Rp 3.5jt - 4.5jt /Bln</span>
+                <ul><li><i class="fas fa-star"></i> Best Seller</li><li><i class="fas fa-check"></i> 15 Desain Feed</li><li><i class="fas fa-check"></i> 5 Video Reels</li><li><i class="fas fa-camera"></i> 1x Kunjungan Shoot</li></ul>
+                <a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20pesan%20Paket%20Growth%20Sosmed" class="btn-wa">Pesan Best Seller</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="event" class="price-section">
+        <div class="price-grid">
+            <div class="card">
+                <h3>Paket Silver</h3><span class="price">Rp 1.5jt – 2.5jt</span>
+                <ul><li><i class="fas fa-camera"></i> 1 Fotografer + 1 Videografer</li><li><i class="fas fa-image"></i> 50 Foto Edited</li><li><i class="fas fa-film"></i> Video 1-2 Menit</li></ul>
+                <a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Paket%20Silver%20Event" class="btn-wa">Pesan Silver</a>
+            </div>
+            <div class="card">
+                <h3>Paket Gold</h3><span class="price">Rp 3.5jt – 5jt</span>
+                <ul><li><i class="fas fa-users"></i> 2 Fotografer + 1 Videografer</li><li><i class="fas fa-image"></i> 100 Foto Edited</li><li><i class="fas fa-video"></i> Aftermovie 3-4 Menit</li></ul>
+                <a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Paket%20Gold%20Event" class="btn-wa">Pesan Gold</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="wedding" class="price-section">
+        <div class="price-grid">
+            <div class="card"><h3>PAKET A</h3><span class="price">Rp 1.500.000</span><ul><li>40 Foto Cetak + Edit</li><li>Bingkai 12R Premium</li><li>Album Eksklusif</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Wedding%20Paket%20A" class="btn-wa">Pesan Paket A</a></div>
+            <div class="card"><h3>PAKET B</h3><span class="price">Rp 2.500.000</span><ul><li>80 Foto Cetak + Edit</li><li>Bingkai 12R Premium</li><li>Album Eksklusif</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Wedding%20Paket%20B" class="btn-wa">Pesan Paket B</a></div>
+            <div class="card"><h3>PAKET C</h3><span class="price">Rp 850.000</span><ul><li>40 Foto Edited</li><li>Album Standar</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Wedding%20Paket%20C" class="btn-wa">Pesan Paket C</a></div>
+            <div class="card" style="border: 2px solid var(--gold); grid-column: 1 / -1;"><h3>Wedding Cinematic Luxury</h3><span class="price">Rp 5.5jt - 8.5jt</span><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Wedding%20Cinematic%20Luxury" class="btn-wa">Pesan Luxury</a></div>
+        </div>
+    </div>
+
+    <div id="ultah" class="price-section">
+        <div class="price-grid">
+            <div class="card"><h3>PAKET A</h3><span class="price">Rp 1.500.000</span><ul><li>40 Foto Cetak + Edit</li><li>Bingkai 12R Premium</li><li>Album Eksklusif</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Ultah%20Paket%20A" class="btn-wa">Pesan Paket A</a></div>
+            <div class="card"><h3>PAKET B</h3><span class="price">Rp 2.500.000</span><ul><li>80 Foto Cetak + Edit</li><li>Bingkai 12R Premium</li><li>Album Eksklusif</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Ultah%20Paket%20B" class="btn-wa">Pesan Paket B</a></div>
+            <div class="card"><h3>PAKET C</h3><span class="price">Rp 850.000</span><ul><li>40 Foto Edited</li><li>Album Standar</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Ultah%20Paket%20C" class="btn-wa">Pesan Paket C</a></div>
+            <div class="card" style="border: 2px solid var(--gold); grid-column: 1 / -1;"><h3>Ultah Cinematic Luxury</h3><span class="price">Rp 5.5jt - 8.5jt</span><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Ultah%20Cinematic%20Luxury" class="btn-wa">Pesan Luxury</a></div>
+        </div>
+    </div>
+
+    <div id="tasmiyah" class="price-section">
+        <div class="price-grid">
+            <div class="card"><h3>PAKET A</h3><span class="price">Rp 1.500.000</span><ul><li>40 Foto Cetak + Edit</li><li>Bingkai 12R Premium</li><li>Album Eksklusif</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Tasmiyah%20Paket%20A" class="btn-wa">Pesan Paket A</a></div>
+            <div class="card"><h3>PAKET B</h3><span class="price">Rp 2.500.000</span><ul><li>80 Foto Cetak + Edit</li><li>Bingkai 12R Premium</li><li>Album Eksklusif</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Tasmiyah%20Paket%20B" class="btn-wa">Pesan Paket B</a></div>
+            <div class="card"><h3>PAKET C</h3><span class="price">Rp 850.000</span><ul><li>40 Foto Edited</li><li>Album Standar</li><li>File HD</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Tasmiyah%20Paket%20C" class="btn-wa">Pesan Paket C</a></div>
+            <div class="card" style="border: 2px solid var(--gold); grid-column: 1 / -1;"><h3>Tasmiyah Cinematic Luxury</h3><span class="price">Rp 5.5jt - 8.5jt</span><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Tasmiyah%20Cinematic%20Luxury" class="btn-wa">Pesan Luxury</a></div>
+        </div>
+    </div>
+
+    <div id="model" class="price-section">
+        <div class="price-grid">
+            <div class="card"><h3>BASIC MODEL</h3><span class="price">Rp 750.000</span><ul><li>1 Jam / 1 Lokasi</li><li>10 Foto Edited</li><li>Unlimited Shoot</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Paket%20Basic%20Model" class="btn-wa">Pesan Basic</a></div>
+            <div class="card" style="border: 2px solid var(--gold);"><h3>PRO MODEL</h3><span class="price">Rp 1.500.000</span><ul><li>2-3 Jam / 2 Outfit</li><li>20 Foto Edited</li><li>1 Reels Highlight</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Paket%20Pro%20Model" class="btn-wa">Pesan Pro</a></div>
+            <div class="card"><h3>EXCLUSIVE</h3><span class="price">Rp 3.500.000</span><ul><li>Half Day</li><li>3-4 Outfit</li><li>Video Cinematic 1 Menit</li></ul><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20tertarik%20Paket%20Exclusive%20Model" class="btn-wa">Pesan Exclusive</a></div>
+        </div>
+    </div>
+
+    <div id="corporate" class="price-section">
+        <div class="price-grid">
+            <div class="card"><h3>Foto Produk</h3><span class="price">Rp 25k - 50k</span><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20ingin%20tanya%20tentang%20Foto%20Produk" class="btn-wa">Tanya Admin</a></div>
+            <div class="card" style="border: 2px solid var(--gold);"><h3>Company Profile</h3><span class="price">3.5jt - 15jt</span><a href="https://wa.me/628192251110?text=Halo%20Impro,%20saya%20ingin%20konsultasi%20Company%20Profile" class="btn-wa">Konsultasi Bisnis</a></div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 50px; padding: 20px; color: #64748b; font-size: 0.8rem;">
+        © 2026 IMPRO PHOTOGRAPHY. All Rights Reserved.
+    </footer>
+</div>
+
+<script>
+    function showCategory(categoryId, element) {
+        document.querySelectorAll('.price-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById(categoryId).classList.add('active');
+        element.classList.add('active');
+        window.scrollTo({ top: 150, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
